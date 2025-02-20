@@ -29,7 +29,6 @@ En este README, nos centraremos en explicar la base de datos que crearemos y as�
 | Puntos_Ranking  | INT                |
 
 Para crear la tabla JUGADORES, necesitaremos ejeuctar el siguiente código:
-
 ```sql
  CREATE TABLE JUGADORES (
     ID_Jugador INT PRIMARY KEY,
@@ -54,7 +53,6 @@ Para crear la tabla JUGADORES, necesitaremos ejeuctar el siguiente código:
 | Fecha_Torneo     | DATE               |
 
 Para crear la tabla TORNEOS, necesitaremos ejeuctar el siguiente código:
-
 ```sql
 CREATE TABLE TORNEOS (
     ID_Torneo INT PRIMARY KEY,
@@ -98,7 +96,6 @@ CREATE TABLE TORNEOS (
 | Perdedor_BreakPoints_Perdidos | DATE               |
 
 Para crear la tabla PARTIDOS, necesitaremos ejeuctar el siguiente código:
-
 ```sql
 CREATE TABLE PARTIDOS (
     ID_Partido INT PRIMARY KEY,
@@ -149,7 +146,6 @@ CREATE TABLE PARTIDOS (
 | Entrada      | VARCHAR(10)        |
 
 Para crear la tabla PARTICIPACION, necesitaremos ejeuctar el siguiente código:
-
 ```sql
 CREATE TABLE PARTICIPACION (
     ID_Torneo INT,
@@ -161,6 +157,52 @@ CREATE TABLE PARTICIPACION (
     FOREIGN KEY (ID_Jugador) REFERENCES JUGADORES(ID_Jugador)
 );
 ```
+### 💥 Enfrentamientos directos
+
+| Field               | Type               |
+|---------------------|--------------------|
+| ID_Jugador1         | INT                |
+| ID_Jugador2         | INT                |
+| Victorias_Jugador1  | INT                |
+| Victorias_Jugador2  | INT                |
+| Superficie          | VARCHAR(50)        |
+
+Para crear la tabla HEAD_TO_HEAD, necesitaremos ejeuctar el siguiente código:
+```sql
+CREATE TABLE HEAD_TO_HEAD (
+    ID_Jugador1 INT,
+    ID_Jugador2 INT,
+    Victorias_Jugador1 INT,
+    Victorias_Jugador2 INT,
+    Superficie VARCHAR(50),
+    PRIMARY KEY (ID_Jugador1, ID_Jugador2, Superficie),
+    FOREIGN KEY (ID_Jugador1) REFERENCES JUGADORES(ID_Jugador),
+    FOREIGN KEY (ID_Jugador2) REFERENCES JUGADORES(ID_Jugador)
+);
+```
+
+### 🛤️ Rendimiento por superficie
+
+| Field                | Type               |
+|----------------------|--------------------|
+| ID_Jugador           | INT                |
+| Superficie           | VARCHAR(50)        |
+| Partidos_Jugados     | INT                |
+| Partidos_Ganados     | INT                |
+| Porcentaje_Victorias | DECIMAL(5,2)       |
+
+Para crear la tabla RENDIMIENTO_SUPERFICIE, necesitaremos ejeuctar el siguiente código:
+```sql
+CREATE TABLE RENDIMIENTO_SUPERFICIE (
+    ID_Jugador INT,
+    Superficie VARCHAR(50),
+    Partidos_Jugados INT,
+    Partidos_Ganados INT,
+    Porcentaje_Victorias DECIMAL(5,2),
+    FOREIGN KEY (ID_Jugador) REFERENCES JUGADORES(ID_Jugador)
+);
+```
+
 ## 📐 Diagrama base de datos
 
 El siguiente diagrama ilustra la estructura de nuestra base de datos, incluyendo tablas y las claves.
