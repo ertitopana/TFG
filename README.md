@@ -165,6 +165,6 @@ CREATE TABLE PARTICIPACION (
 
 El siguiente diagrama ilustra la estructura de nuestra base de datos, incluyendo tablas y las claves.
 
-![Database Schema](DOCS/DiagramaEntidadRelacion.png)
+![Database Schema](DOCS/DiagramaER.png)
 
 Este esquema ofrece una vista de cómo las diferentes entidades interactuan con el sistema. Esto puede ayudarnos a entender mejor el flujo de datos y asegurarnos del diseño de la base de datos.
