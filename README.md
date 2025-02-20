@@ -7,10 +7,10 @@ En este README, nos centraremos en explicar la base de datos que crearemos y as�
 
 ## 📎 Creditos
 
-| Name                        | UPM Mail                            | LinkedIn                                                                         | 
-| --------------------------- | ----------------------------------- | -------------------------------------------------------------------------------- | 
-| Ismael Arroyo Madera        | ismael.arroyo.madera@alumnos.upm.es | [Ismael Arroyo][(https://www.linkedin.com/in/ismael-arroyo-madera-3a4a861a1/)]   | 
-| Roberto Sanz López          | roberto.sanzl@alumnos.upm.es        | [Roberto Sanz][(https://www.linkedin.com/in/roberto-sanz-l%C3%B3pez-57b0bb2a9/)] | 
+| Name                        | UPM Mail                            | LinkedIn                                                       | 
+| --------------------------- | ----------------------------------- | -------------------------------------------------------------- | 
+| Ismael Arroyo Madera        | ismael.arroyo.madera@alumnos.upm.es | https://www.linkedin.com/in/ismael-arroyo-madera-3a4a861a1/    | 
+| Roberto Sanz López          | roberto.sanzl@alumnos.upm.es        | https://www.linkedin.com/in/roberto-sanz-l%C3%B3pez-57b0bb2a9/ | 
 
 ---
 
