@@ -55,7 +55,7 @@ Para crear la tabla JUGADORES, necesitaremos ejeuctar el siguiente código:
 Para crear la tabla TORNEOS, necesitaremos ejeuctar el siguiente código:
 ```sql
 CREATE TABLE TORNEOS (
-    ID_Torneo INT PRIMARY KEY,
+    ID_Torneo INT NOT NULL PRIMARY KEY,
     Nombre_Torneo VARCHAR(100),
     Superficie VARCHAR(50),
     Total_Jug_Torneo INT,
