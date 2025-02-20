@@ -19,7 +19,7 @@ Por otro lado, tendremos dos esquemas: **pruebas** y **db2inst**, uno para prueb
 
 Para la gestión de la base de datos usaremos **DB2 LUW** que permite almacenar, gestionar y consultar datos estructurados.  
 
-El proceso que hemos seguido, podemos verlo aquí: desarrollo base de datos
+El proceso que hemos seguido, podemos verlo aquí: [Desarrollo de la base de datos: TFGDB](https://github.com/ertitopana/TFG/blob/main/DesarrolloTFGDB)
 
 ## 📦 Tablas
 
