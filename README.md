@@ -140,7 +140,7 @@ CREATE TABLE PARTIDOS (
 
 ```
 ### 🎫 Participación
-### 🎾 Torneos
+
 | Field        | Type               |
 |--------------|--------------------|
 | ID_Torneo    | INT                |
