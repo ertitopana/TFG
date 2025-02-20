@@ -17,21 +17,21 @@ En este README, nos centraremos en explicar la base de datos que crearemos y as�
 ## 📦 Tablas
 
 ### 🙎‍♂️ Jugadores
-| Field           | Type               |
-|-----------------|--------------------|
-| ID_Jugador      | INT PRIMARY KEY    |
-| Nombre_Jugador  | VARCHAR(100)       |
-| Mano            | CHAR(1)            |
-| Altura          | INT                |
-| Pais            | CHAR(3)            |
-| Edad            | INT                |
-| Ranking         | INT                |
-| Puntos_Ranking  | INT                |
+| Atributo         | Tipo de Dato         | Descripción                       |
+|------------------|----------------------|-----------------------------------|
+| **ID_Jugador**   | INT PRIMARY KEY [PK] | Identificador único del jugador   |
+| Nombre_Jugador   | VARCHAR(100)         | Nombre completo del jugador       |
+| Mano             | CHAR(1)              | Mano dominante (diestro/zurdo)    |
+| Altura           | INT                  | Altura en centímetros             |
+| Pais             | CHAR(3)              | Código de país (ESP, USA, BUL...) |
+| Edad             | INT                  | Edad del jugador                  |
+| Ranking          | INT                  | Ranking actual del jugador        |
+| Puntos_Ranking   | INT                  | Puntos acumulados en el ranking   | 
 
 Para crear la tabla JUGADORES, necesitaremos ejeuctar el siguiente código:
 ```sql
  CREATE TABLE JUGADORES (
-    ID_Jugador INT PRIMARY KEY,
+    ID_Jugador INT NOT NULL PRIMARY KEY,
     Nombre_Jugador VARCHAR(100),
     Mano CHAR(1),
     Altura INT,
@@ -42,15 +42,15 @@ Para crear la tabla JUGADORES, necesitaremos ejeuctar el siguiente código:
 );
 ```
 
-### 🎾 Torneos
-| Field            | Type               |
-|------------------|--------------------|
-| ID_Torneo        | INT PRIMARY KEY    |
-| Nombre_Torneo    | VARCHAR(100)       |
-| Superficie       | VARCHAR(50)        |
-| Total_Jug_Torneo | INT                |
-| Tipo_Torneo      | VARCHAR(50)        |
-| Fecha_Torneo     | DATE               |
+### 🏆 Torneos
+| Atributo         | Tipo de Dato         | Descripción                               |
+|------------------|----------------------|-------------------------------------------|
+| **ID_Torneo**    | INT PRIMARY KEY [PK] | Identificador único del torneo            |
+| Nombre_Torneo    | VARCHAR(100)         | Nombre oficial del torneo                 |
+| Superficie       | VARCHAR(50)          | Tipo de superficie (Césped, Tierra...)    |
+| Total_Jug_Torneo | INT                  | Número total de jugadores participantes   |
+| Tipo_Torneo      | VARCHAR(50)          | Nivel del torneo (Grand Slam, ATP 500..)  |
+| Fecha_Torneo     | DATE                 | Fecha de inicio del torneo                |
 
 Para crear la tabla TORNEOS, necesitaremos ejeuctar el siguiente código:
 ```sql
@@ -65,40 +65,40 @@ CREATE TABLE TORNEOS (
 ```
 
 
-### 🏆 Torneos
-| Field                         | Type               |
-|-------------------------------|--------------------|
-| ID_Partido                    | INT PRIMARY KEY    |
-| ID_Torneo                     | INT NOT NULL       |
-| ID_Ganador                    | INT NOT NULL       |
-| ID_Perdedor                   | INT NOT NULL       |
-| Resultado                     | VARCHAR(50)        | 
-| Num_Max_Sets                  | INT                | 
-| Fase_Torneo                   | VARCHAR(50)        |
-| Minutos_Partido               | INT                |
-| Ganador_Aces                  | INT                |
-| DoblesFaltas_Ganador          | INT                |
-| Ganador_PuntosServicio        | INT                |
-| Ganador_1ServHecho            | INT                |
-| Ganador_1ServGanado           | INT                |
-| Ganador_2ServGanado           | INT                |
-| Ganador_JuegConServicio       | INT                |
-| Ganador_BreakPoints_Salvados  | INT                |
-| Ganador_BreakPoints_Perdidos  | INT                |
-| Perdedor_Aces                 | DATE               |
-| Perdedor_DoblesFaltas         | VARCHAR(50)        |
-| PuntosServicio_Perdedor       | INT                |
-| Perdedor_1ServHecho           | VARCHAR(50)        |
-| Perdedor_1ServGanado          | DATE               |
-| Perdedor_2ServGanado          | VARCHAR(50)        |
-| Perdedor_JuegConServicio      | INT                |
-| Perdedor_BreakPoints_Salvados | VARCHAR(50)        |
-| Perdedor_BreakPoints_Perdidos | DATE               |
+### 🎾 Partidos
+| Atributo                      | Tipo de Dato         | Descripción                              |
+|-------------------------------|----------------------|------------------------------------------|
+| **ID_Partido**                | INT PRIMARY KEY [PK] | Identificador único del partido
+| **ID_Torneo**                 | INT NOT NULL [FK]    | Torneo al que pertenece el partido
+| **ID_Ganador**                | INT NOT NULL [FK]    | ID del jugador ganador
+| **ID_Perdedor**               | INT NOT NULL [FK]    | ID del jugador perdedor
+| Resultado                     | VARCHAR(50)          | Resultado del partido (6-4, 3-6, 7-5)
+| Num_Max_Sets                  | INT                  | Número máximo de sets en el partido
+| Fase_Torneo                   | VARCHAR(50)          | Fase del torneo (Final, Semifinal)
+| Minutos_Partido               | INT                  | Duración del partido en minutos
+| Ganador_Aces                  | INT                  | Aces realizados por el ganador
+| DoblesFaltas_Ganador          | INT                  |
+| Ganador_PuntosServicio        | INT                  |
+| Ganador_1ServHecho            | INT                  |
+| Ganador_1ServGanado           | INT                  |
+| Ganador_2ServGanado           | INT                  |
+| Ganador_JuegConServicio       | INT                  |
+| Ganador_BreakPoints_Salvados  | INT                  |
+| Ganador_BreakPoints_Perdidos  | INT                  |
+| Perdedor_Aces                 | DATE                 | Aces realizados por el perdedor
+| Perdedor_DoblesFaltas         | VARCHAR(50)          |
+| PuntosServicio_Perdedor       | INT                  |
+| Perdedor_1ServHecho           | VARCHAR(50)          |
+| Perdedor_1ServGanado          | DATE                 |
+| Perdedor_2ServGanado          | VARCHAR(50)          |
+| Perdedor_JuegConServicio      | INT                  |
+| Perdedor_BreakPoints_Salvados | VARCHAR(50)          |
+| Perdedor_BreakPoints_Perdidos | DATE                 |
 
 Para crear la tabla PARTIDOS, necesitaremos ejeuctar el siguiente código:
 ```sql
 CREATE TABLE PARTIDOS (
-    ID_Partido INT PRIMARY KEY,
+    ID_Partido INT NOT NULL PRIMARY KEY,
     ID_Torneo INT NOT NULL,
     ID_Ganador INT NOT NULL,
     ID_Perdedor INT NOT NULL,
@@ -107,7 +107,7 @@ CREATE TABLE PARTIDOS (
     Fase_Torneo VARCHAR(50),
     Minutos_Partido INT,
     
-    -- Estadísticas Ganador
+    -- Estadísticas del Ganador
     Ganador_Aces INT,
     DoblesFaltas_Ganador INT,
     Ganador_PuntosServicio INT,
@@ -118,7 +118,7 @@ CREATE TABLE PARTIDOS (
     Ganador_BreakPoints_Salvados INT,
     Ganador_BreakPoints_Perdidos INT,
     
-    -- Estadísticas Perdedor
+    -- Estadísticas del Perdedor
     Perdedor_Aces INT,
     Perdedor_DoblesFaltas INT,
     PuntosServicio_Perdedor INT,
@@ -128,28 +128,27 @@ CREATE TABLE PARTIDOS (
     Perdedor_JuegConServicio INT,
     Perdedor_BreakPoints_Salvados INT,
     Perdedor_BreakPoints_Perdidos INT,
-
-    -- Relaciones
+    
+    -- Claves Foráneas
     FOREIGN KEY (ID_Torneo) REFERENCES TORNEOS(ID_Torneo),
     FOREIGN KEY (ID_Ganador) REFERENCES JUGADORES(ID_Jugador),
     FOREIGN KEY (ID_Perdedor) REFERENCES JUGADORES(ID_Jugador)
 );
-
 ```
 ### 🎫 Participación
 
-| Field        | Type               |
-|--------------|--------------------|
-| ID_Torneo    | INT                |
-| ID_Jugador   | INT                |
-| CabezaSerie  | INT                |
-| Entrada      | VARCHAR(10)        |
+| Atributo       | Tipo de Dato       | Descripción                                       |
+|----------------|--------------------|---------------------------------------------------|
+| **ID_Torneo**  | INT [PK,FK]        | Torneo en el que participa el jugador             |
+| **ID_Jugador** | INT [PK,FK]        | Jugador participante                              |
+| CabezaSerie    | INT                | Número de cabeza de serie del jugador (si aplica) |
+| Entrada        | VARCHAR(10)        | Cómo ingresó al torneo (Wildcard, Qualifier...)   | 
 
 Para crear la tabla PARTICIPACION, necesitaremos ejeuctar el siguiente código:
 ```sql
 CREATE TABLE PARTICIPACION (
-    ID_Torneo INT,
-    ID_Jugador INT,
+    ID_Torneo INT NOT NULL,
+    ID_Jugador INT NOT NULL,
     CabezaSerie INT,
     Entrada VARCHAR(10),
     PRIMARY KEY (ID_Torneo, ID_Jugador),
@@ -157,48 +156,49 @@ CREATE TABLE PARTICIPACION (
     FOREIGN KEY (ID_Jugador) REFERENCES JUGADORES(ID_Jugador)
 );
 ```
-### 💥 Enfrentamientos directos
+### ⚔️ Enfrentamientos directos
 
-| Field               | Type               |
-|---------------------|--------------------|
-| ID_Jugador1         | INT                |
-| ID_Jugador2         | INT                |
-| Victorias_Jugador1  | INT                |
-| Victorias_Jugador2  | INT                |
-| Superficie          | VARCHAR(50)        |
+| Atributo            | Tipo de Dato       | Descripción                                       |
+|---------------------|--------------------|---------------------------------------------------|
+| **ID_Jugador1**     | INT [PK,FK]        | Primer jugador                                    |
+| **ID_Jugador2**     | INT [PK,FK]        | Segundo jugador                                   |
+| Victorias_Jugador1  | INT                | Partidos ganados por el primer jugador            |
+| Victorias_Jugador2  | INT                | Partidos ganados por el segundo jugador           |
+| Superficie          | VARCHAR(50)        | Superficie de los partidos analizados             |
 
 Para crear la tabla HEAD_TO_HEAD, necesitaremos ejeuctar el siguiente código:
 ```sql
 CREATE TABLE HEAD_TO_HEAD (
-    ID_Jugador1 INT,
-    ID_Jugador2 INT,
+    ID_Jugador1 INT NOT NULL,
+    ID_Jugador2 INT NOT NULL,
     Victorias_Jugador1 INT,
     Victorias_Jugador2 INT,
-    Superficie VARCHAR(50),
+    Superficie VARCHAR(50) NOT NULL,
     PRIMARY KEY (ID_Jugador1, ID_Jugador2, Superficie),
     FOREIGN KEY (ID_Jugador1) REFERENCES JUGADORES(ID_Jugador),
     FOREIGN KEY (ID_Jugador2) REFERENCES JUGADORES(ID_Jugador)
 );
 ```
 
-### 🛤️ Rendimiento por superficie
+### 🌍 Rendimiento por superficie
 
-| Field                | Type               |
-|----------------------|--------------------|
-| ID_Jugador           | INT                |
-| Superficie           | VARCHAR(50)        |
-| Partidos_Jugados     | INT                |
-| Partidos_Ganados     | INT                |
-| Porcentaje_Victorias | DECIMAL(5,2)       |
+| Atributo             | Tipo de Dato       | Descripción                                       |
+|----------------------|--------------------|---------------------------------------------------|
+| **ID_Jugador**       | INT [PK,FK]        | Jugador al que pertenecen las estadísticas        |
+| **Superficie**       | VARCHAR(50) [PK]   | Superficie analizada (Césped, Tierra, etc)        |
+| Partidos_Jugados     | INT                | Número total de partidos jugados                  |
+| Partidos_Ganados     | INT                | Número de partidos ganados                        |
+| Porcentaje_Victorias | DECIMAL(5,2)       | Porcentaje de victorias                           |
 
 Para crear la tabla RENDIMIENTO_SUPERFICIE, necesitaremos ejeuctar el siguiente código:
 ```sql
 CREATE TABLE RENDIMIENTO_SUPERFICIE (
-    ID_Jugador INT,
-    Superficie VARCHAR(50),
+    ID_Jugador INT NOT NULL,
+    Superficie VARCHAR(50) NOT NULL,
     Partidos_Jugados INT,
     Partidos_Ganados INT,
     Porcentaje_Victorias DECIMAL(5,2),
+    PRIMARY KEY (ID_Jugador, Superficie),
     FOREIGN KEY (ID_Jugador) REFERENCES JUGADORES(ID_Jugador)
 );
 ```
