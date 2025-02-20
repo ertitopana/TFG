@@ -13,6 +13,13 @@ En este README, nos centraremos en explicar la base de datos que crearemos y as�
 | Roberto Sanz López          | roberto.sanzl@alumnos.upm.es        | https://www.linkedin.com/in/roberto-sanz-l%C3%B3pez-57b0bb2a9/ | 
 
 ---
+## 📁 Base de datos
+Respecto a la base de datos, crearemos una con el nombre de **TFGDB** en la cual tendremos una instancia denominada **db2inst**.
+Por otro lado, tendremos dos esquemas: **pruebas** y **db2inst**, uno para pruebas y el otro para el desarrollo del proyecto.
+
+Para la gestión de la base de datos usaremos **DB2 LUW** que permite almacenar, gestionar y consultar datos estructurados.  
+
+El proceso que hemos seguido, podemos verlo aquí: desarrollo base de datos
 
 ## 📦 Tablas
 
