@@ -73,35 +73,35 @@ CREATE TABLE TORNEOS (
 
 
 ### 🎾 Partidos
-| Atributo                      | Tipo de Dato         | Descripción                              |
-|-------------------------------|----------------------|------------------------------------------|
-| **ID_Partido**                | INT PRIMARY KEY [PK] | Identificador único del partido
-| **ID_Torneo**                 | INT NOT NULL [FK]    | Torneo al que pertenece el partido
-| **ID_Ganador**                | INT NOT NULL [FK]    | ID del jugador ganador
-| **ID_Perdedor**               | INT NOT NULL [FK]    | ID del jugador perdedor
-| Resultado                     | VARCHAR(50)          | Resultado del partido (6-4, 3-6, 7-5)
-| Num_Max_Sets                  | INT                  | Número máximo de sets en el partido
-| Fase_Torneo                   | VARCHAR(50)          | Fase del torneo (Final, Semifinal)
-| Minutos_Partido               | INT                  | Duración del partido en minutos
-| Ganador_Aces                  | INT                  | Aces realizados por el ganador
-| DoblesFaltas_Ganador          | INT                  |
-| Ganador_PuntosServicio        | INT                  |
-| Ganador_1ServHecho            | INT                  |
-| Ganador_1ServGanado           | INT                  |
-| Ganador_2ServGanado           | INT                  |
-| Ganador_JuegConServicio       | INT                  |
-| Ganador_BreakPoints_Salvados  | INT                  |
-| Ganador_BreakPoints_Perdidos  | INT                  |
-| Perdedor_Aces                 | DATE                 | Aces realizados por el perdedor
-| Perdedor_DoblesFaltas         | VARCHAR(50)          |
-| PuntosServicio_Perdedor       | INT                  |
-| Perdedor_1ServHecho           | VARCHAR(50)          |
-| Perdedor_1ServGanado          | DATE                 |
-| Perdedor_2ServGanado          | VARCHAR(50)          |
-| Perdedor_JuegConServicio      | INT                  |
-| Perdedor_BreakPoints_Salvados | VARCHAR(50)          |
-| Perdedor_BreakPoints_Perdidos | DATE                 |
-
+| Atributo                      | Tipo de Dato         | Descripción                                     |
+|-------------------------------|----------------------|-------------------------------------------------|
+| **ID_Partido**                | INT PRIMARY KEY [PK] | Identificador único del partido                 |
+| **ID_Torneo**                 | INT NOT NULL [FK]    | Torneo al que pertenece el partido              |
+| **ID_Ganador**                | INT NOT NULL [FK]    | ID del jugador ganador                          |
+| **ID_Perdedor**               | INT NOT NULL [FK]    | ID del jugador perdedor                         |
+| Resultado                     | VARCHAR(50)          | Resultado del partido (6-4, 3-6, 7-5)           |
+| Num_Max_Sets                  | INT                  | Número máximo de sets en el partido             |
+| Fase_Torneo                   | VARCHAR(50)          | Fase del torneo (Final, Semifinal)              |
+| Minutos_Partido               | INT                  | Duración del partido en minutos                 |
+| Ganador_Aces                  | INT                  | Aces del ganador                                |
+| DoblesFaltas_Ganador          | INT                  | Dobles faltas del ganador                       |
+| Ganador_PuntosServicio        | INT                  | Puntos al servicio del ganador                  |
+| Ganador_1ServHecho            | INT                  | Nº puntos jugados con primer servicio ganador   |
+| Ganador_1ServGanado           | INT                  | Nº puntos ganados con primer servicio ganador   |
+| Ganador_2ServGanado           | INT                  | Nº puntos ganados con segundo servicio ganador  |
+| Ganador_JuegConServicio       | INT                  | Nº juegos ganados al servicio ganador           |
+| Ganador_BreakPoints_Salvados  | INT                  | Puntos break salvados del ganador               |
+| Ganador_BreakPoints_Perdidos  | INT                  | Puntos de break perdidos del ganador            |
+| Perdedor_Aces                 | DATE                 | Aces del perdedor                               |
+| Perdedor_DoblesFaltas         | VARCHAR(50)          | Dobles faltas del perdedor                      |
+| PuntosServicio_Perdedor       | INT                  | Puntos al servicio del perdedor                 |
+| Perdedor_1ServHecho           | VARCHAR(50)          | Nº puntos jugados con primer servicio perdedor  |
+| Perdedor_1ServGanado          | DATE                 | Nº puntos ganados con primer servicio perdedor  |
+| Perdedor_2ServGanado          | VARCHAR(50)          | Nº puntos ganados con segundo servicio perdedor |
+| Perdedor_JuegConServicio      | INT                  | Nº juegos ganados al servicio perdedor          |
+| Perdedor_BreakPoints_Salvados | VARCHAR(50)          | Puntos break salvados del perdedor              |
+| Perdedor_BreakPoints_Perdidos | DATE                 | Puntos de break perdidos del perdedor           |
+                                                        
 Para crear la tabla PARTIDOS, necesitaremos ejeuctar el siguiente código:
 ```sql
 CREATE TABLE PARTIDOS (
