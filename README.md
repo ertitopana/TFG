@@ -192,6 +192,7 @@ CREATE TABLE HEAD_TO_HEAD (
 | Atributo             | Tipo de Dato       | Descripción                                       |
 |----------------------|--------------------|---------------------------------------------------|
 | **ID_Jugador**       | INT [PK,FK]        | Jugador al que pertenecen las estadísticas        |
+| Nombre               | VARCHAR (100)      | Nombre jugador
 | **Superficie**       | VARCHAR(50) [PK]   | Superficie analizada (Césped, Tierra, etc)        |
 | Partidos_Jugados     | INT                | Número total de partidos jugados                  |
 | Partidos_Ganados     | INT                | Número de partidos ganados                        |
@@ -199,14 +200,20 @@ CREATE TABLE HEAD_TO_HEAD (
 
 Para crear la tabla RENDIMIENTO_SUPERFICIE, necesitaremos ejeuctar el siguiente código:
 ```sql
-CREATE TABLE RENDIMIENTO_SUPERFICIE (
-    ID_Jugador INT NOT NULL,
-    Superficie VARCHAR(50) NOT NULL,
-    Partidos_Jugados INT,
-    Partidos_Ganados INT,
-    Porcentaje_Victorias DECIMAL(5,2),
-    PRIMARY KEY (ID_Jugador, Superficie),
-    FOREIGN KEY (ID_Jugador) REFERENCES JUGADORES(ID_Jugador)
+CREATE TABLE DB2INST.RENDIMIENTO_SUPERFICIE (
+    id_jugador INT NOT NULL,
+    nombre VARCHAR(100) NOT NULL,
+    superficie VARCHAR(50) NOT NULL,
+    pTotal INT NOT NULL,
+    pGanados INT NOT NULL,
+    porcentajeV DECIMAL(5,2) GENERATED ALWAYS AS 
+        (CASE 
+            WHEN pTotal > 0 THEN (pGanados * 100.0) / pTotal
+            ELSE 0
+        END) 
+        VIRTUAL,
+    PRIMARY KEY (id_jugador, superficie),
+    FOREIGN KEY (id_jugador) REFERENCES DB2INST.JUGADORES(id_jugador)
 );
 ```
 
